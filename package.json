@@ -1,13 +1,35 @@
 {
-  "name": "notionai",
+  "name": "@notionai/monorepo",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {},
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown --cache",
+    "*.{ts,tsx,mjs,js,jsx}": [
+      "prettier --ignore-unknown --write",
+      "cross-env NODE_OPTIONS=\"--max-old-space-size=8192\" eslint --cache --fix"
+    ]
+  },
   "private": true,
   "dependencies": {},
   "devDependencies": {
     "@nx/js": "19.7.2",
-    "nx": "19.7.2"
+    "nx": "19.7.2",
+    "prettier": "^3.3.3",
+    "lint-staged": "^15.2.2",
+    "husky": "^9.0.11",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import-x": "^0.5.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-rxjs": "^5.0.3",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-sonarjs": "^0.25.1",
+    "eslint-plugin-unicorn": "^52.0.0",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "eslint-plugin-vue": "^9.24.1"
   },
   "workspaces": [
     "packages/*"
