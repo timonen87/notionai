@@ -6,5 +6,28 @@
   "namedInputs": {
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
     "default": ["sharedGlobals"]
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      },
+      "exclude": ["packages/backend/server-e2e/**/*"]
+    }
+  ]
 }
